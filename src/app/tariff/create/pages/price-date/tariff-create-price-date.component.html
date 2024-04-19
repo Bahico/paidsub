@@ -1,0 +1,47 @@
+@if (editForm) {
+    <form [formGroup]="editForm" class="container">
+        <div class="price-date">
+            <div class="price container-white">
+                <div class="rub">
+                    <input type="text" placeholder="0">
+                    <p>RUB</p>
+                </div>
+                <div class="line"></div>
+                <div class="usd">
+                    <input type="text" placeholder="0">
+                    <p>USD</p>
+                </div>
+            </div>
+
+            <p class="container-title">Продолжительность</p>
+            <div class="day container-white">
+                <div>
+                    <input type="text" placeholder="Бессрочно">
+                    <p class="right">Дней</p>
+                </div>
+                <div class="line"></div>
+                <div class="dropup" (click)="changeDay()">
+                    <p>
+                        Триал период
+                    </p>
+                    <p class="right">
+                        Выключен
+                        <span>
+                           <img src="assets/images/Group 31.svg" alt="menu">
+                        </span>
+                    </p>
+
+                    <div class="dropup-content {{dayOpen ? 'dropup-active' : ''}}">
+                        <span class="item">Content 1</span>
+                        <span class="line-border"></span>
+                        <span class="item">Content 1</span>
+                        <span class="line-border"></span>
+                        <span class="item">Content 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">Укажите срок в днях или оставьте поле пустым если продолжительность бессрочная</div>
+        </div>
+    </form>
+}

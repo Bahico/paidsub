@@ -1,0 +1,106 @@
+.main {
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        img {
+            width: 250px;
+            margin-right: -50px;
+            height: 200px;
+            object-fit: cover;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+        p {
+            color: var(--down-text);
+            text-align: center;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 138.462% */
+        }
+    }
+    .tariffs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        .create {
+            background-color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            width: var(--width);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 8px;
+            svg {
+                margin-right: 8px;
+            }
+        }
+        .tariff {
+            width: calc(var(--width) - 8px - 16px);
+            background-color: white;
+            height: 45px;
+            border-radius: 10px;
+            padding: var(--padding);
+            margin: 8px;
+            position: relative;
+            .right {
+                position: absolute;
+                right: 10px;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                color: #3C3C434D;
+            }
+            span {
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: -0.5px;
+            }
+            p {
+                color: var(--down-text);
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 18px; /* 128.571% */
+                letter-spacing: -0.2px;
+            }
+        }
+        .edit-position {
+            background-color: white;
+            border-radius: 10px;
+            padding: var(--padding);
+            margin: 8px;
+            position: relative;
+            p {
+                color: #007AFF;
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: -0.5px;
+            }
+            span {
+                color: #007AFF;
+                position: absolute;
+                right: 10px;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

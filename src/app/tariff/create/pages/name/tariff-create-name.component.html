@@ -1,0 +1,12 @@
+@if (editForm) {
+    <form [formGroup]="editForm" class="container">
+        <div class="name  container-white">
+            <div class="input">
+                <input type="text" maxlength="32" formControlName="name" placeholder="Название">
+                <span>{{maxLength}}</span>
+            </div>
+            <span class="line"></span>
+            <p>Разновидность цифровой валюты, учёт внутренних расчётных единиц которой обеспечивает децентрализованная платёжная система</p>
+        </div>
+    </form>
+}

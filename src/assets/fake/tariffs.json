@@ -1,0 +1,86 @@
+[
+    { 
+        "id": 1,
+        "name": "Крипта для чайников и не только",
+        "description": "Test tariff description",
+        "is_recurrent": false,
+        "display_position": 1,
+        "display_option": "tariff_display_option_disabled",
+        "trial": 1,
+        "duration": 1,
+        "price": [
+            {
+                "currency": "RUB",
+                "amount": 130
+            },
+            {
+                "currency": "EUR",
+                "amount": 10
+            }
+        ],
+        "resources": [ 1, 54, 22 ]
+    },
+    { 
+        "id": 2,
+        "name": "Чеклист альткоинов",
+        "description": "Test tariff description",
+        "is_recurrent": false,
+        "display_position": 2,
+        "display_option": "tariff_display_option_disabled",
+        "trial": 1,
+        "duration": 1,
+        "price": [
+            {
+                "currency": "RUB",
+                "amount": 130
+            },
+            {
+                "currency": "EUR",
+                "amount": 10
+            }
+        ],
+        "resources": [ 1, 54, 22 ]
+    },
+    { 
+        "id": 3,
+        "name": "Чеклист asfsasaf",
+        "description": "Test tariff description",
+        "is_recurrent": false,
+        "display_position": 3,
+        "display_option": "tariff_display_option_disabled",
+        "trial": 1,
+        "duration": 1,
+        "price": [
+            {
+                "currency": "RUB",
+                "amount": 130
+            },
+            {
+                "currency": "EUR",
+                "amount": 10
+            }
+        ],
+        "resources": [ 1, 54, 22 ]
+    },
+    { 
+        "id": 3,
+        "name": "Чеклист asfsasaf",
+        "description": "Test tariff description",
+        "is_recurrent": false,
+        "display_position": 3,
+        "display_option": "tariff_display_option_disabled",
+        "trial": 1,
+        "duration": 1,
+        "price": [
+            {
+                "currency": "RUB",
+                "amount": 130
+            },
+            {
+                "currency": "EUR",
+                "amount": 10
+            }
+        ],
+        "resources": [ 1, 54, 22 ]
+    }
+]

@@ -1,5 +1,6 @@
 { 
-    "name": "Test tariff",
+    "id": 1,
+    "name": "Крипта для чайников и не только",
     "description": "Test tariff description",
     "is_recurrent": false,
     "display_position": 1,

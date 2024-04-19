@@ -1,0 +1,36 @@
+@if (editForm) {
+    <form class="container">
+        <div class="resources">
+            <p class="paragraph">Выберите ресурсы (каналы/группы) на которые нужно выдать доступ после успешной покупки из списка.</p>
+            <p class="paragraph">Если у вас еще нет добавленных каналов/групп то необходимо нажать кнопку “Добавить ресурс” и после добавления выбрать подключенный ресурс из списка.</p>
+            <div class="channels container-white">
+                @for (resource of resources; track $index) {
+                    <div class="channel card">
+                        <span class="image">
+                            {{resource.name[0]}}
+                        </span>
+                        <div class="infos">
+                            <p>{{resource.name}}</p>
+                            <span>Канал</span>
+                        </div>
+    
+                        <label class="switch right">
+                            <input class="switch-input" (change)="setResource(resource.id)" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="line"></div>
+                }
+
+                <div class="add">
+                    <div>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                    Добавить ресурс
+                </div>
+            </div>
+        </div>
+    </form>
+}

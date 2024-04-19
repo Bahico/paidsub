@@ -1,8 +1,9 @@
 { 
-    "name": "Test tariff",
+    "id": 2,
+    "name": "Чеклист альткоинов",
     "description": "Test tariff description",
     "is_recurrent": false,
-    "display_position": 1,
+    "display_position": 2,
     "display_option": "tariff_display_option_disabled",
     "trial": 1,
     "duration": 1,

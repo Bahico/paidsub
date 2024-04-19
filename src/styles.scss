@@ -1,1 +1,225 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/dropup.scss";
+@import "./assets/switch.scss";
+
+:root {
+    --primary: #007AFF;
+    --down-text: #636366;
+    --background: #EFEEF3;
+    --width: 358px;
+    --padding: 16px 12px;
+}
+
+body {
+    background-color: var(--background);
+    width: 100%;
+    height: 180vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.m-7 {
+    padding-bottom: 70px;
+}
+
+.down-button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-top: 0.33px solid #3C3C435C;
+    button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        width: var(--width);
+        margin: 8px;
+        padding: 16px 12px;
+        border-radius: 10px;
+    }
+}
+
+.step-view {
+    position: fixed;
+    bottom: 63px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    left: 0;
+    text-transform: uppercase;
+    .indicator {
+        width: 100%;
+        height: 3px;
+        background-color: #DFDFE0;
+        display: flex;
+        span {
+            width: 100%;
+            height: 3px;
+        }
+        .active {
+            background-color: var(--primary);
+        }
+    }
+}
+
+.line {
+    margin: 10px 0 10px 2%;
+    width: calc(100% + 5px);
+    height: 1px;
+    display: flex;
+    justify-content: end;
+    background-color: rgba(60, 60, 67, 0.29);
+}
+
+input,textarea {
+    outline: none;
+    width: 100%;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    padding: 4px 5px;
+}
+input::placeholder,textarea::placeholder {
+    color: rgba(0, 0, 0, 0.30);
+}
+
+.right {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.paragraph {
+    width: var(--width);
+    text-align: center;
+    margin: 20px auto;
+    color: #636366;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.container-white {
+    background-color: white;
+    border-radius: 10px;
+    padding: var(--padding);
+    width: var(--width);
+}
+
+.card {
+    display: flex;
+    text-align: start;
+    margin: 8px 0;
+    position: relative;
+    .image {
+        border-radius: 50%;
+        background-color: #6FD3FB;
+        width: 40px;
+        height: 40px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    .infos {
+        p {
+            margin-bottom: 4px;
+        }
+        span {
+            margin-top: 10px;
+            color: #8E8E93;
+        }
+    }
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+        width: 250px;
+        margin-right: -50px;
+        height: 200px;
+        object-fit: cover;
+    }
+    h1 {
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    p {
+        color: var(--down-text);
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 138.462% */
+    }
+}
+
+.container-title {
+    display: flex;
+    justify-content: center;
+    p {
+        width: var(--width);
+        color: #636366;
+        font-family: "SF Pro Text", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.15px;
+        text-transform: uppercase;
+        justify-content: start;
+        display: flex;
+        text-align: start;
+    }
+}
+
+.width {
+    width: var(--width);
+}
+
+.position-relative {
+    position: relative;
+}
+
+.primary {
+    color: #007AFF !important;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    color: #FD2C55;
+    margin: 10px 0;
+}
+
+.margin-4 {
+    margin-left: 4px;
+}

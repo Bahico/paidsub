@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.dropup {
+    position: relative;
+    z-index: 1;
+    .dropup-content {
+        position: absolute !important;
+        right: 0;
+        bottom: 40px;
+        z-index: 2;
+        display: none;
+        width: 280px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.40);
+        .item {
+            font-family: "Poppins", sans-serif;
+            font-size: 17px;
+            color: black;
+            transition: .5s;
+            padding: 11px 14px;
+            text-decoration: none;
+            display: block;
+        }
+        .line-border {
+            height: 100%;
+            height: 1px;
+            display: flex;
+            background-color: rgba(60, 60, 67, 0.29);
+        }
+    }
+    .dropup-active {
+        display: block;
+    }
+}
+
+.dropup-content span:hover {opacity: .8; background: rgba(212, 206, 206, 0.336);}

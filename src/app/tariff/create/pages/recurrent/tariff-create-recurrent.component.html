@@ -1,0 +1,32 @@
+@if (editForm) {
+    <form [formGroup]="editForm" class="container">
+        <div class="recurrent">
+            <p class="paragraph">Разовые платежи — это платеж осуществляемый единоразово, чтобы продлить подобный тариф пользователю будет необходимо совершить покупку повторно.</p>
+            <p class="paragraph">Рекуррентные платежи — регулярные и периодические списания определённой суммы с банковской карты без подтверждения её владельца.</p>
+            
+            <div class="select container-white">
+                <span (click)="changeRecurrent(false)">
+                    Разовые платежи
+                    @if (!editForm.get('is_recurrent').value) {
+                        <div class="selected">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+                            </svg>                          
+                        </div>
+                    }
+                </span>
+                <div class="line"></div>
+                <span (click)="changeRecurrent(true)">
+                    Рекуррентные платежи
+                    @if (editForm.get('is_recurrent').value) {
+                        <div class="selected">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+                            </svg>                          
+                        </div>
+                    }
+                </span>
+            </div>
+        </div>
+    </form>
+}

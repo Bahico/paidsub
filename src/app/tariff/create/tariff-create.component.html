@@ -1,0 +1,34 @@
+<div class="main m-7">
+    <div class="title">
+        <img src="assets/images/ordak.png" alt="">
+        <h1>{{titles[step]}}</h1>
+    </div>
+
+    <form [formGroup]="editForm" class="body">
+        @if (step === 0) {
+            <tariff-create-name></tariff-create-name>
+        } @else if (step === 1) {
+            <tariff-create-recurrent></tariff-create-recurrent>
+        } @else if (step === 2) {
+            <tariff-create-price-date></tariff-create-price-date>
+        } @else {
+            <tariff-create-resources></tariff-create-resources>
+        }
+    </form>
+</div>
+
+<div class="step-view">
+    <span>шаг {{step + 1}} из 4</span>
+    <div class="indicator">
+        <span class="active"></span>
+        <span class="{{step > 0 ? 'active' : ''}}"></span>
+        <span class="{{step > 1 ? 'active' : ''}}"></span>
+        <span class="{{step > 2 ? 'active' : ''}}"></span>    
+    </div>
+</div>
+
+<div class="down-button">
+    <button (click)="next()">
+        Далее
+    </button>
+</div>
