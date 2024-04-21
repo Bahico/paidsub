@@ -30,21 +30,6 @@
         display: flex;
         justify-content: center;
         gap: 10px;
-        .create {
-            background-color: var(--primary);
-            border: none;
-            border-radius: 10px;
-            width: var(--width);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 0;
-            margin: 8px;
-            svg {
-                margin-right: 8px;
-            }
-        }
         .tariff {
             width: calc(var(--width) - 8px - 16px);
             background-color: white;
