@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Metka 1",
+        "utm": "Utm 1"
+    },
+    {
+        "id": 2,
+        "name": "Metka 2",
+        "utm": "Utm 2"
+    },
+    {
+        "id": 3,
+        "name": "Metka 3",
+        "utm": "Utm 3"
+    },
+    {
+        "id": 4,
+        "name": "Metka 4",
+        "utm": "Utm 4"
+    }
+]

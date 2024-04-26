@@ -1,0 +1,124 @@
+@if (settings) {
+    <div class="main">
+        <div class="title-text text-center">
+            <h1>A/B тестирование </h1>
+        </div>
+        <p class="paragraph">Метод маркетингового исследования, суть которого заключается в том, чтобы сравнить несколько различных вариантов приветственного сообщения и определить, который из них будет давать наибольшую конверсию в продажи</p>
+    
+        <div class="container-title">
+            <p>Вариант А</p>
+        </div>
+        <div class="container-white">
+            <div class="position-relative">
+                <p>Всего переходов</p>
+                <span class="right">{{settings.a.users_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>Заблокировали бота</p>
+                <span class="right">{{settings.a.users_blocked_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>Купили подписку</p>
+                <span class="right">{{settings.a.users_subscribed_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>СR</p>
+                <span class="right">{{settings.a.cr}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative big-right">
+                <p>Доход с продаж</p>
+                <div class="right">
+                    <div>12 000 ₽</div>
+                    <div>1200 $</div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative primary" routerLink="edit/a">
+                <p>Настройки</p>
+                <span class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path d="M0.292893 10.2929C-0.0976311 10.6834 -0.0976311 11.3166 0.292893 11.7071C0.683418 12.0976 1.31658 12.0976 1.70711 11.7071L6.70711 6.70711C7.09763 6.31658 7.09763 5.68342 6.70711 5.29289L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292893 0.292893C-0.0976311 0.683418 -0.0976311 1.31658 0.292893 1.70711L4.58579 6L0.292893 10.2929Z" fill="#007AFF"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    
+        <div class="container-title">
+            <p>Вариант В</p>
+        </div>
+        <div class="container-white">
+            <div class="position-relative">
+                <p>Всего переходов</p>
+                <span class="right">{{settings.b.users_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>Заблокировали бота</p>
+                <span class="right">{{settings.b.users_blocked_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>Купили подписку</p>
+                <span class="right">{{settings.b.users_subscribed_count}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative">
+                <p>СR</p>
+                <span class="right">{{settings.b.cr}}</span>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative big-right">
+                <p>Доход с продаж</p>
+                <div class="right">
+                    <div>12 000 ₽</div>
+                    <div>1200 $</div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="position-relative primary" routerLink="edit/b">
+                <p>Настройки</p>
+                <span class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path d="M0.292893 10.2929C-0.0976311 10.6834 -0.0976311 11.3166 0.292893 11.7071C0.683418 12.0976 1.31658 12.0976 1.70711 11.7071L6.70711 6.70711C7.09763 6.31658 7.09763 5.68342 6.70711 5.29289L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292893 0.292893C-0.0976311 0.683418 -0.0976311 1.31658 0.292893 1.70711L4.58579 6L0.292893 10.2929Z" fill="#007AFF"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    
+        <div class="container-white margin-top position-relative">
+            <p>Включить тестирование</p>
+            <div class="right">
+                <label class="switch">
+                    <input class="switch-input" type="checkbox" disabled [checked]="settings.settings.status">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <button class="delete container-white" (click)="changeDeleteModal()">
+            Сбросить
+        </button>
+    </div>
+}
+
+
+@if (deleteModal) {
+    <div class="background" (click)="changeDeleteModal()"></div>
+
+    <div class="alert">
+        <span class="close" (click)="changeDeleteModal()">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+            </svg>          
+        </span>
+        <h1>Вы уверены что хотите сбросить A/B тестирование?</h1>
+        <p>Все данные безвозвратно удаляться </p>
+    
+        <button (click)="reset()" class="delete container-white">Сбросить A/B тестирование</button>
+        <button (click)="changeDeleteModal()" class="cancel container-white primary">Отмена</button>
+    </div>
+}

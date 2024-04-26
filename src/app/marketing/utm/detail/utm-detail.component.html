@@ -1,0 +1,80 @@
+@if (utm && stats) {
+<div class="main">
+    <div class="title-text">
+        <h1>{{utm.name}}</h1>
+    </div>
+
+    <div class="container-title">
+        <p>
+            статистика
+        </p>
+    </div>
+    <div class="container-white">
+        <div class="position-relative">
+            <p>Всего переходов</p>
+            <span class="right">{{stats.users_count}}</span>
+        </div>
+        <div class="line"></div>
+        
+        
+        <div class="position-relative">
+            <p>Заблокировали бота</p>
+            <span class="right">{{stats.inactive_users_count}}</span>
+        </div>
+        <div class="line"></div>
+        
+        
+        <div class="position-relative">
+            <p>Купили подписку</p>
+            <span class="right">{{stats.buyed_subs_users_count}}</span>
+        </div>
+        <div class="line"></div>
+
+        
+        <div class="position-relative">
+            <p>Не продлили подписку</p>
+            <span class="right">{{stats.not_prolong_subs_users_count}}</span>
+        </div>
+        <div class="line"></div>
+
+        <div class="position-relative primary" routerLink="../../view-statistica/{{utmId}}">
+            <p>Посмотреть график</p>
+            <span class="right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                    <path d="M0.292893 10.2929C-0.0976311 10.6834 -0.0976311 11.3166 0.292893 11.7071C0.683418 12.0976 1.31658 12.0976 1.70711 11.7071L6.70711 6.70711C7.09763 6.31658 7.09763 5.68342 6.70711 5.29289L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292893 0.292893C-0.0976311 0.683418 -0.0976311 1.31658 0.292893 1.70711L4.58579 6L0.292893 10.2929Z" fill="#007AFF"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    <div class="container-title">
+        <p>
+            Доход с продаж
+        </p>
+    </div>
+    <div class="container-white">
+        <div class="position-relative">
+            <p>RUB</p>
+            <span class="right">{{stats.finance_stats[1].amount}}</span>
+        </div>
+        <div class="line"></div>
+
+        <div class="position-relative">
+            <p>USD</p>
+            <span class="right">{{stats.finance_stats[0].amount}}</span>
+        </div>
+        <div class="line"></div>
+
+        <div class="position-relative primary" routerLink="../../view-statistica-price/{{utmId}}">
+            <p>Посмотреть график</p>
+            <span class="right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                    <path d="M0.292893 10.2929C-0.0976311 10.6834 -0.0976311 11.3166 0.292893 11.7071C0.683418 12.0976 1.31658 12.0976 1.70711 11.7071L6.70711 6.70711C7.09763 6.31658 7.09763 5.68342 6.70711 5.29289L1.70711 0.292893C1.31658 -0.0976311 0.683418 -0.0976311 0.292893 0.292893C-0.0976311 0.683418 -0.0976311 1.31658 0.292893 1.70711L4.58579 6L0.292893 10.2929Z" fill="#007AFF"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    <utm-delete [id]="utmId"></utm-delete>
+</div>
+}

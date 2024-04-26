@@ -1,0 +1,65 @@
+<div class="container-title">
+    Кому отправить
+</div>
+<div class="container-white">
+    <div class="position-relative">
+        <p>Отправить всем</p>
+        <div class="right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="position-relative">
+        <p>Только подписчикам</p>
+        <div class="right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="position-relative">
+        <p>Пользователям без подписки</p>
+        <div class="right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="container-title date">
+    Отложить рассылку
+</div>
+<div class="container-white">
+    <div class="position-relative dropup">
+        <p>Отправка</p>
+
+        <div class="right" (click)="changeModal()">
+            Сразу
+            <span class="margin-4">
+                <img src="assets/images/Group 31.svg" alt="menu">
+             </span>
+        </div>
+
+        <div class="dropup-content {{modalOpen ? 'dropup-active' : ''}}">
+            <span class="item" (click)="changeModal(false)">Сразу</span>
+            <span class="line-border"></span>
+            <span class="item" (click)="changeModal(true)">Отложенная</span>
+        </div>
+    </div>
+</div>
+
+<div class="container-white date">
+    <div class="position-relative">
+        <input type="text" [(ngModel)]="hours" maxlength="5" (ngModelChange)="changeDate()">
+        <p class="right">Время</p>
+    </div>
+    <div class="line"></div>
+    <div class="position-relative">
+        <input type="text" placeholder="ДД-ММ-ГГГГ" maxlength="10" [(ngModel)]="date" (ngModelChange)="changeDate()">
+        <p class="right">Дата</p>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<form [formGroup]="editForm" class="main">
+        <div class="title">
+            <img src="assets/images/ordak.png" alt="">
+            <h1>{{titles[mode]}}</h1>
+        </div>
+        
+        <div class="container" style="margin-top: 30px;">
+            @if (mode === "action") {
+                <marketing-create-action></marketing-create-action>
+            }@else if (mode === before_step.text) {
+                <marketing-create-text></marketing-create-text>
+            } @else {
+                @if (editForm.get('broadcast_kind').value === broadcastKind.manual) {
+                    @if (mode === manual_step.button) {
+                        <marketing-create-button></marketing-create-button>
+                    } @else if (mode === manual_step.send_manual) {
+                        <marketing-create-send-manual></marketing-create-send-manual>
+                    }
+                } @else if (editForm.get('broadcast_kind').value === broadcastKind.buy_before) {
+                    <marketing-create-send-before></marketing-create-send-before>
+                } @else {
+                    <marketing-create-send-after></marketing-create-send-after>
+                }
+        }
+        </div>
+</form>
+
+
+<div class="step-view">
+    <span>
+        шаг {{step + 1}} из 
+        @if (editForm.get('broadcast_kind').value !== broadcastKind.manual) {
+            3
+        } @else {
+            4
+        }
+    
+    </span>
+    <div class="indicator">
+        <span class="active"></span>
+        <span class="{{step > 0 ? 'active' : ''}}"></span>
+        <span class="{{step > 1 ? 'active' : ''}}"></span>
+        @if (editForm.get('broadcast_kind').value === broadcastKind.manual) {
+            <span class="{{step > 2 ? 'active' : ''}}"></span>
+        }
+    </div>
+</div>
+
+<div class="down-button">
+    <button (click)="next()">
+        Далее
+    </button>
+</div>

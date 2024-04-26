@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="title-text">
+        <h1>Настройки варианта {{type.toUpperCase()}}</h1>
+    </div>
+
+    <form [formGroup]="editForm" class="container-white">
+        <media></media>
+    </form>
+    <p class="down-description">Сообщение, которое отображается при запуске бота</p>
+</div>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

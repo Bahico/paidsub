@@ -1,0 +1,46 @@
+<div class="main">
+    <div class="title-text">
+        <h1>Статистика</h1>
+    </div>
+
+    <div class="container-title position-relative">
+        <p class="position-relative">
+            общая
+            <span class="right">{{fromToDate}}</span>
+        </p>
+    </div>
+    <div class="container-white period-main-infos">
+        <div class="all">
+            <div class="current">
+                <span class="amount">{{broadCasted}}</span>
+                <span class="{{broadCastedAction > 0 ? 'plus' : 'minus'}}">{{broadCastedAction}}({{broadCastedPersentage}}%)</span>
+            </div>
+            <p class="name">Всего переходов</p>
+        </div>
+        <div class="follows">
+            <div class="current">
+                <span class="amount">{{buyed}}</span>
+                <span class="{{buyedAction > 0 ? 'plus' : 'minus'}}">{{buyedAction}}({{buyedPersentage}}%)</span>
+            </div>
+            <p class="name">Купили подписку</p>
+        </div>
+    </div>
+
+    <div class="container-title">
+        <p>Всего переходов</p>
+    </div>
+
+    <div class="container-white">
+        <span class="from-to">{{fromToDate}}</span>
+        <canvas width="340" height="350" #broadcastedTmpl></canvas>
+    </div>
+
+    <div class="container-title">
+        <p>Купили подписку</p>
+    </div>
+
+    <div class="container-white">
+        <span class="from-to">{{fromToDate}}</span>
+        <canvas width="340" height="350" #buyedTmpl></canvas>
+    </div>
+</div>

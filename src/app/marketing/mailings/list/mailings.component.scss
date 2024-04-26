@@ -1,0 +1,21 @@
+.manual {
+    background-color: #0098EA;
+}
+
+.before {
+    background: #F7931A;
+}
+
+.after {
+    background: #28C281;
+}
+
+.mailings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: calc(var(--width) - 16px);
+}

@@ -1,0 +1,26 @@
+<form class="main" [formGroup]="editForm">
+    <div class="title-text">
+        <h1>Новая UTM-метка</h1>
+    </div>
+
+    <div class="container-white">
+        <div class="position-relative">
+            <input type="text" formControlName="name" placeholder="Названия">
+            <p class="right">32</p>
+        </div>
+        <div class="line"></div>
+        
+        <div class="position-relative">
+            <input type="text" formControlName="utm" placeholder="Идентификатор">
+        </div>
+    </div>
+    <p class="down-description">
+        Введите идентификатор UTM-метки (он будет отображаться в вашей ссылке)
+    </p>
+</form>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

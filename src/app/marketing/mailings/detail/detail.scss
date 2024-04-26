@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title-text {
+        width: var(--width);
+        font-size: 15px;
+    }
+    .tariff {
+        height: 30px;
+    }
+}

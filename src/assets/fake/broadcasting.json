@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "broadcast_kind": 1,
+        "broadcast_time": 1,
+        "message": "nimadurla",
+        "attachment": 1,
+        "keyboard_settings": [],
+        "name": "Nimadur 1"
+    },
+    {
+        "id": 2,
+        "broadcast_kind": 0,
+        "broadcast_time": 1,
+        "message": "nimadurla",
+        "attachment": 1,
+        "keyboard_settings": [],
+        "name": "Nimadur 2"
+    },
+    {
+        "id": 3,
+        "broadcast_kind": 2,
+        "broadcast_time": 1,
+        "message": "nimadurla",
+        "attachment": 1,
+        "keyboard_settings": [],
+        "name": "Nimadur 3"
+    }
+]

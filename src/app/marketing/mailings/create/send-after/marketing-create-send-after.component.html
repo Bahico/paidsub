@@ -1,0 +1,16 @@
+<div class="container-title">
+    Подключенные тарифы
+</div>
+<div class="container-white">
+    @for (tariff of tariffs; track $index; let last = $last) {
+        <div class="position-relative card">
+            <p>{{tariff.name}}</p>
+
+            <label class="switch right">
+                <input class="switch-input" (change)="setTariff(tariff.id)" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="line {{last ? 'no-active' : ''}}"></div>
+    }
+</div>

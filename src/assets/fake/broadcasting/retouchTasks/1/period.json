@@ -1,0 +1,27 @@
+[
+    {
+        "time": 1712689200000,
+        "broadcasted": 12,
+        "buyed": 5
+    },
+    {
+        "time": 1712862000000,
+        "broadcasted": 8,
+        "buyed": 10
+    },
+    {
+        "time": 1713121200000,
+        "broadcasted": 10,
+        "buyed": 13
+    },
+    {
+        "time": 1713207600000,
+        "broadcasted": 13,
+        "buyed": 12
+    },
+    {
+        "time": 1713380400000,
+        "broadcasted": 20,
+        "buyed": 10
+    }
+]

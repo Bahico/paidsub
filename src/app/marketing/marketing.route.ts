@@ -22,7 +22,19 @@ export const MarketingRoute:Routes = [
         component: BasicComponent
     },
     {
+        path: 'utm',
+        loadChildren: () => import('./utm/utm.module').then(m => m.UtmModule)
+    },
+    {
         path: 'mailings',
         loadChildren: () => import('./mailings/mailings.module').then(m => m.MailingsModule)
+    },
+    {
+        path: 'ab-test',
+        loadChildren: () => import('./ab-test/ab-test.module').then(m => m.AbTestModule)
+    },
+    {
+        path: 'webinar',
+        loadChildren: () => import('./webinar/webinar.module').then(m => m.WebinarModule)
     }
 ]

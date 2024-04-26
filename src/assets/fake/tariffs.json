@@ -63,7 +63,7 @@
         "resources": [ 1, 54, 22 ]
     },
     { 
-        "id": 3,
+        "id": 4,
         "name": "Чеклист asfsasaf",
         "description": "Test tariff description",
         "is_recurrent": false,

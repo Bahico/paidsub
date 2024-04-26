@@ -1,0 +1,77 @@
+[
+    {
+        "date": 1712689200000,
+        "users_count": 1,
+        "inactive_users_count": 3,
+        "buyed_subs_users_count": 0,
+        "not_prolong_subs_users_count": 2,
+        "finance_stats": [
+            {
+                "amount": 10000
+            },
+            {
+                "amount": 30000
+            }
+        ]
+    },
+    {
+        "date": 1712862000000,
+        "users_count": 10,
+        "inactive_users_count": 5,
+        "buyed_subs_users_count": 3,
+        "not_prolong_subs_users_count": 11,
+        "finance_stats": [
+            {
+                "amount": 200000
+            },
+            {
+                "amount": 120000
+            }
+        ]
+    },
+    {
+        "date": 1713121200000,
+        "users_count": 13,
+        "inactive_users_count": 7,
+        "buyed_subs_users_count": 6,
+        "not_prolong_subs_users_count": 13,
+        "finance_stats": [
+            {
+                "amount": 230000
+            },
+            {
+                "amount": 200000
+            }
+        ]
+    },
+    {
+        "date": 1713207600000,
+        "users_count": 16,
+        "inactive_users_count": 8,
+        "buyed_subs_users_count": 9,
+        "not_prolong_subs_users_count": 15,
+        "finance_stats": [
+            {
+                "amount": 300000
+            },
+            {
+                "amount": 250000
+            }
+        ]
+    },
+    {
+        "date": 1713380400000,
+        "users_count": 20,
+        "inactive_users_count": 11,
+        "buyed_subs_users_count": 11,
+        "not_prolong_subs_users_count": 1,
+        "finance_stats": [
+            {
+                "amount": 100000
+            },
+            {
+                "amount": 200000
+            }
+        ]
+    }
+]
