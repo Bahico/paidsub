@@ -36,6 +36,7 @@ export class MarketingCreateComponent {
         message: new FormControl(null),
         attachment: new FormControl(null),
         keyboard_settings: new FormArray([]),
+        target_auditory: new FormControl(null),
         time: new FormControl(null),
         hours: new FormControl(null),
         tariffs: new FormControl([])

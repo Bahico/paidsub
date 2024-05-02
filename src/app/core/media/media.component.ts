@@ -1,41 +1,55 @@
-import { Component, forwardRef } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component, Input, OnInit } from "@angular/core";
+import { ControlContainer, FormGroup } from "@angular/forms";
+import { MediaService } from "./media.service";
+import { getEndpointFor } from "../endpoint";
 
 @Component({
     selector: "media",
     templateUrl: 'media.component.html',
-    styles: [`
-        .right {
-            input {
-                display: none;
-            }
-        }
-    `],
-    providers: [
-        {
-          provide: NG_VALUE_ACCESSOR,
-          useExisting: forwardRef(() => MediaComponent),
-          multi: true,
-        },
-    ],
+    styleUrl: 'media.scss',
     standalone: true
 })
-export class MediaComponent implements ControlValueAccessor {
-    value: number[] | null = null;
-    onChange: any = () => {};
-    onTouch: any = () => {};
+export class MediaComponent implements OnInit {
+    @Input() messageControlName: string;
+    @Input() attachmentControlName = 'attachment';
+    @Input({required: true}) placeholder: string;
+    imgUrl = getEndpointFor('marketing/media/');
 
-    writeValue(value: number[]): void {
-        this.value = value;
+    editForm: FormGroup;
+
+    constructor(
+      private readonly controlContainer: ControlContainer,
+      private readonly mediaService: MediaService
+    ) {}
+
+    ngOnInit(): void {
+        this.editForm = <FormGroup>this.controlContainer.control;
+        this.editForm.valueChanges.subscribe(data => console.log(data))
+    }
+
+    sendMedia(event: any) {
+      const formData = new FormData();
+      for (const file of event.target.files) {
+        formData.append('media', file)
       }
-    
-      // Called when the form control is updated by the user
-      registerOnChange(fn: any): void {
-        this.onChange = fn;
-      }
-    
-      // Called when the form control loses focus
-      registerOnTouched(fn: any): void {
-        this.onTouch = fn;
-      }
+      console.log(typeof event.target.files);
+      
+      this.mediaService
+      .create(formData)
+      .subscribe(data => {
+        this.editForm
+          .get(this.attachmentControlName)
+          .setValue([
+            ...this.editForm.get(this.attachmentControlName).value, 
+            ...data
+          ]);
+      })
+    }
+
+    deleteMedia(image: number) {
+      const images = this.editForm.get(this.attachmentControlName).value
+      const index = images.indexOf(image)
+      images.splice(index, 1);
+      this.editForm.get(this.attachmentControlName).setValue(images);
+    }
 }

@@ -2,25 +2,27 @@
     <form [formGroup]="editForm" class="container">
         <div class="price-date">
             <div class="price container-white">
-                <div class="rub">
-                    <input type="text" placeholder="0">
-                    <p>RUB</p>
+                <div class="position-relative" [formGroup]="editForm.get('price').controls[0]">
+                    <input type="number" placeholder="0" formControlName="amount">
+                    <p class="right">RUB</p>
                 </div>
                 <div class="line"></div>
-                <div class="usd">
-                    <input type="text" placeholder="0">
-                    <p>USD</p>
+                <div class="position-relative"  [formGroup]="editForm.get('price').controls[1]">
+                    <input type="number" placeholder="0" formControlName="amount">
+                    <p class="right">USD</p>
                 </div>
             </div>
 
-            <p class="container-title">Продолжительность</p>
+            <div class="container-title">
+                <p>Продолжительность</p>
+            </div>
             <div class="day container-white">
                 <div>
-                    <input type="text" placeholder="Бессрочно">
+                    <input type="number" placeholder="Бессрочно" formControlName="duration">
                     <p class="right">Дней</p>
                 </div>
                 <div class="line"></div>
-                <div class="dropup" (click)="changeDay()">
+                <div class="dropup" (click)="changeDayModal()">
                     <p>
                         Триал период
                     </p>
@@ -32,16 +34,20 @@
                     </p>
 
                     <div class="dropup-content {{dayOpen ? 'dropup-active' : ''}}">
-                        <span class="item">Content 1</span>
+                        <span class="item" (click)="changeDay(1)">1 день</span>
                         <span class="line-border"></span>
-                        <span class="item">Content 1</span>
+                        <span class="item" (click)="changeDay(3)">3 дня</span>
                         <span class="line-border"></span>
-                        <span class="item">Content 1</span>
+                        <span class="item" (click)="changeDay(7)">7 дней</span>
+                        <span class="line-border"></span>
+                        <span class="item" (click)="changeDay(30)">30 дней</span>
+                        <span class="line-border"></span>
+                        <span class="item" (click)="changeDay(0)">Не включать</span>
                     </div>
                 </div>
             </div>
 
-            <div class="description">Укажите срок в днях или оставьте поле пустым если продолжительность бессрочная</div>
+            <p class="down-description">Укажите срок в днях или оставьте поле пустым если продолжительность бессрочная</p>
         </div>
     </form>
 }

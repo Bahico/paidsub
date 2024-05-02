@@ -1,0 +1,4 @@
+<form class="{{container && 'container-white'}} position-relative" [formGroup]="editForm">
+    <input type="text" maxlength="32" [placeholder]="'Название ' + placeholder" [formControlName]="controlName ?? 'name'">
+    <p class="right">{{residual}}</p>
+</form>

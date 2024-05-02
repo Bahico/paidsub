@@ -16,6 +16,9 @@ import { BeforeDetailSettingComponent } from "./detail/before/before-detail-sett
 import { AfterDetailComponent } from "./detail/after/after-detail.component";
 import { AfterDetailSettingComponent } from "./detail/after/after-detial-setting.component";
 import { MailingDeleteComponent } from "./delete/mailing-delete.component";
+import { NameComponent } from "../../core/name/name.component";
+import { NgxMaskDirective } from "ngx-mask";
+import { MediaComponent } from "../../core/media/media.component";
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { MailingDeleteComponent } from "./delete/mailing-delete.component";
         ]),
         ReactiveFormsModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        NameComponent,
+        NgxMaskDirective,
+        MediaComponent
     ],
     declarations: [
         MarketingCreateComponent,

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MailingsService } from "../../mailings.service";
 import { MailingsModel } from "../../mailings.model";
 import { FormControl, FormGroup } from "@angular/forms";
@@ -14,12 +14,16 @@ export class BeforeDetailSettingComponent {
 
     editForm = new FormGroup({
         enabled: new FormControl(false),
-        broadcasted: new FormControl(null)
+        broadcasted: new FormControl(null),
+        name: new FormControl(null),
+        message: new FormControl(null),
+        attachment: new FormControl([])
     })
     
     constructor(
         private readonly activatedRoute: ActivatedRoute,
-        private readonly mailingsService: MailingsService
+        private readonly mailingsService: MailingsService,
+        private readonly router: Router
     ) {}
 
     ngOnInit(): void {
@@ -34,10 +38,17 @@ export class BeforeDetailSettingComponent {
         .detail(this.mailingId)
         .subscribe(data => {
             this.mailing = data;
+            this.editForm.patchValue({
+                ...<any>data
+            })
         })
     }
 
     save() {
-        
+        this.mailingsService
+        .updateBefore(this.editForm.getRawValue(), this.mailingId)
+        .subscribe(() => {
+            this.router.navigate(['/marketing/mailings'])
+        })
     }
 }

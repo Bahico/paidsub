@@ -1,0 +1,49 @@
+<div class="search">
+    <div class="input">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4839 10.3803C13.3037 7.98519 13.1203 4.55437 10.9337 2.36803C8.54681 -0.0185094 4.67697 -0.0185094 2.29013 2.36803C-0.0967106 4.75457 -0.0967106 8.62391 2.29013 11.0104C4.47703 13.1971 7.90886 13.3802 10.3043 11.56L14.6872 15.9421L14.7726 16.0166C15.0993 16.2652 15.5675 16.2404 15.8659 15.9421C16.1914 15.6166 16.1914 15.089 15.8659 14.7635L11.4839 10.3803ZM3.07591 3.15371C5.02878 1.20108 8.19501 1.20108 10.1479 3.15371C12.1007 5.10633 12.1007 8.27215 10.1479 10.2248C8.19501 12.1774 5.02878 12.1774 3.07591 10.2248C1.12304 8.27215 1.12304 5.10633 3.07591 3.15371Z" fill="#3C3C43" fill-opacity="0.6"/>
+            </svg>
+        </span>
+        <input type="text" placeholder="Поиск">
+    </div>
+    <button class="cancel">
+        Отмена
+    </button>
+</div>
+
+@if (users && selectingUsers) {
+    <div style="display: flex;flex-direction: column;align-items: center;margin: 15px 0;">
+        <div class="container-white">
+            @for (user of users; track $index) {
+                <div class="card" (click)="selectUser(user)">
+                    <div class="image">
+                        <img [src]="user.logo_url" [alt]="user.name">
+                    </div>
+        
+                    <p>{{user.name}}</p>
+                    
+                    @if (isActiveUser(user)) {
+                        <div class="right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    }
+                </div>
+        
+                <div class="line {{$last && 'no-active'}}"></div>
+            }
+        </div>
+    </div>
+}
+
+<div>
+    {{selectingUsers | json}}
+</div>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

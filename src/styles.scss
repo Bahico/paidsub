@@ -55,6 +55,7 @@ body {
 }
 
 .down-button {
+    z-index: 100;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -112,10 +113,10 @@ body {
 .line {
     margin: 10px 0 10px 2%;
     width: calc(100% + 5px);
-    height: 1px;
+    height: 0.33px;
     display: flex;
     justify-content: end;
-    background-color: rgba(60, 60, 67, 0.29);
+    background-color: rgba(60, 60, 67, 0.178);
 }
 
 input,textarea {
@@ -140,7 +141,7 @@ input::placeholder,textarea::placeholder {
     bottom: 0;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    // flex-direction: column;
     justify-content: center;
 }
 
@@ -157,13 +158,12 @@ input::placeholder,textarea::placeholder {
 }
 .down-description {
     width: var(--width);
-    margin: 0 auto 20px auto;
+    margin: 10px auto 20px auto;
     color: #636366;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    margin: 10px 0;
 }
 .container-white {
     background-color: white;
@@ -268,6 +268,7 @@ input::placeholder,textarea::placeholder {
     justify-content: center;
     color: #FD2C55;
     margin: 10px 0;
+    width: calc(var(--width) + 20px);
 }
 
 .margin-4 {

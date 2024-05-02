@@ -14,8 +14,13 @@ import { API_URL } from '../app.constans';
 export class RequestHandlerInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    if (true && !request.params.has('skipFake')) {
+    request = request.clone({
+      setHeaders: {
+        authorization: "qwerty",
+      },
+    });
+
+    if (false && !request.params.has('skipFake') && !request.url.includes("uploadVideo")) {
       const prefix = request.url.substring(26, request.url.length);
       const extension = request.params.get('extension') || 'json';
       request = request.clone({

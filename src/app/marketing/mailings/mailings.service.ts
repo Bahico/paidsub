@@ -7,7 +7,7 @@ import { MailingsModel, Period } from "./mailings.model";
     providedIn: "root"
 })
 export class MailingsService {
-    private readonly resourceUrl = getEndpointFor("broadcasting");
+    private readonly resourceUrl = getEndpointFor("marketing/broadcasting");
     private readonly http = inject(HttpClient)
 
     mailings() {
@@ -20,9 +20,17 @@ export class MailingsService {
     createBefore(data: any) {
         return this.http.post(`${this.resourceUrl}/retouchTasks`, data)
     }
+
+    updateBefore(data: any, id: number) {
+        return this.http.put(`${this.resourceUrl}/retouchTasks/${id}`, data)
+    }
     
     createAfter(data: any) {
         return this.http.post(`${this.resourceUrl}/retouchAfterEndSubscription`, data)
+    }
+
+    updateAfter(data: any, id: number) {
+        return this.http.put(`${this.resourceUrl}/retouchAfterEndSubscription/${id}`, data)
     }
 
     detail(id: number) {

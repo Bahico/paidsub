@@ -27,6 +27,11 @@ export function getMonth(month: number) {
     }
 }
 
+export function getDate(dateNumber: number) {
+    const date = new Date(dateNumber);
+    return date.getDate() + " " + getMonth(date.getMonth()) + " " + date.getFullYear();
+}
+
 export function getFromToDate(from: number, to: number) {
     const fromDate = new Date(from);
     const toDate = new Date(to);
@@ -34,4 +39,4 @@ export function getFromToDate(from: number, to: number) {
       fromDate.getDate() + " " + getMonth(fromDate.getMonth()) + ". " + fromDate.getFullYear() + "г. - "
       + toDate.getDate() + " " + getMonth(toDate.getMonth()) + ". " + toDate.getFullYear() + "г."
     ) 
-  }
+}

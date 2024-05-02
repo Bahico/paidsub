@@ -1,0 +1,35 @@
+<form [formGroup]="editForm" class="main m-7">
+    <div class="title">
+        <img src="assets/images/ordak.png" alt="">
+        <h1>{{titles[step]}}</h1>
+    </div>
+
+    @if (step === 0) {
+        <webinar-content-create></webinar-content-create>
+    } @else if (step === 1) {
+        <webinar-audience-create></webinar-audience-create>
+    } @else if (step === 2) {
+        <webinar-message-create></webinar-message-create>
+    } @else if (step === 3) {
+        <webinar-date-create></webinar-date-create>
+    }
+</form>
+
+
+<div class="step-view">
+    <span>
+        шаг {{step + 1}} из 4
+    </span>
+    <div class="indicator">
+        <span class="active"></span>
+        <span class="{{step > 0 ? 'active' : ''}}"></span>
+        <span class="{{step > 1 ? 'active' : ''}}"></span>
+        <span class="{{step > 2 ? 'active' : ''}}"></span>
+    </div>
+</div>
+
+<div class="down-button">
+    <button (click)="next()">
+        Далее
+    </button>
+</div>

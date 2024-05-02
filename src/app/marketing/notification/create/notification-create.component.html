@@ -1,0 +1,50 @@
+<form class="main" [formGroup]="editForm">
+    <div class="title-text">
+        <h1>{{titles[mode]}}</h1>
+    </div>
+
+    <name placeholder="уведомление" controlName="message"></name>
+    <p class="down-description">
+        Отображается только у вас
+    </p>
+
+    <media placeholder="уведомления"></media>
+    <p class="down-description">Сообщение, которое хотите разослать пользователям.</p>
+
+    <div class="container-title">
+        <p>Время отправки за ...</p>
+    </div>
+    <div class="container-white">
+        <div class="position-relative">
+            <input type="number" formControlName="day" placeholder="0" />
+            <p class="right">Дня</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="position-relative">
+            <input type="number" placeholder="0" formControlName="hours" />
+            <p class="right">Часов</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="position-relative">
+            <input type="number" placeholder="0" formControlName="minuts" />
+            <p class="right">Минут</p>
+        </div>
+    </div>
+    <p class="down-description">
+        Срок(часов), за который до начала вебинара будет отправлено сообщение
+    </p>
+</form>
+
+<div class="down-button">
+    <button (click)="save()">
+        @if (mode === "create") {
+            Создать
+        } @else {
+            Сохранить
+        }
+    </button>
+</div>

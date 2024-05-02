@@ -1,0 +1,50 @@
+<form [formGroup]="editForm">
+    <name placeholder="автовебинара"></name>
+    <p class="down-description">
+        Название вашего автовебинара
+    </p>
+
+    <div class="container-white">
+        <input type="text" placeholder="Сообщение регистрации" formControlName="reg_message">
+    </div>
+    <p class="down-description">Сообщения, которое бот будет присылать пользователю перед регистрацией на вебинар.</p>
+
+    <div class="container-title">
+        <p>Видео автовебинара</p>
+    </div>
+    <div class="container-white primary upload-video card">
+        @if (!videoUrl) {
+            <label for="upload-video">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="11.25" stroke="#007AFF" stroke-width="1.5"/>
+                        <rect x="11.6" y="7.6" width="0.8001" height="8.8" rx="0.40005" stroke="#007AFF" stroke-width="0.8"/>
+                        <rect x="16.4" y="11.6" width="0.8001" height="8.8" rx="0.40005" transform="rotate(90 16.4 11.6)" stroke="#007AFF" stroke-width="0.8"/>
+                    </svg>
+                </div>
+                <p>Выбрать видео</p>
+            </label>
+            <input type="file" id="upload-video" accept="video/*" (change)="videoSend($event)">
+        } @else {
+            <div class="image">
+                <video [src]="videoUrl"></video>
+            </div>
+
+            <div class="infos">
+                <p>{{file?.name}}</p>
+                <span>{{fileSize}} mb</span>
+            </div>
+
+            <div class="right" (click)="clearVideo()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="10" fill="#3C3C43" fill-opacity="0.3"/>
+                    <rect x="5.99023" y="5" width="13" height="1.4" rx="0.7" transform="rotate(45 5.99023 5)" fill="white"/>
+                    <rect x="15.1816" y="5.98999" width="13" height="1.4" rx="0.7" transform="rotate(135 15.1816 5.98999)" fill="white"/>
+                </svg>
+            </div>
+        }
+    </div>
+    <p class="down-description">
+        Идёт обработка видео в облаке!
+    </p>
+</form>

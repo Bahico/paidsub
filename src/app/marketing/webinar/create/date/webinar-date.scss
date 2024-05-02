@@ -1,0 +1,21 @@
+.right-menu {
+    flex-direction: row;
+    color: #8E8E93;
+}
+
+.weeks {
+    display: flex;
+    gap: 12px;
+
+    .week {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1.3px solid #3178DE;
+        color: #3178DE;
+        cursor: pointer;
+    }
+    .week-active {
+        background-color: #3178DE;
+        color: white;
+    }
+}

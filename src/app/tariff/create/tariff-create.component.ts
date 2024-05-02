@@ -24,7 +24,8 @@ export class TariffCreateComponent {
     step: Step = 0;
 
     editForm = new FormGroup({
-        name: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(32)]),
+        name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(32)]),
+        description: new FormControl(null, [Validators.required, Validators.minLength(1)]),
         price: new FormArray([
             new FormGroup({
                 currency: new FormControl("RUB", ),
@@ -35,6 +36,8 @@ export class TariffCreateComponent {
                 amount: new FormControl(null)
             })
         ]),
+        duration: new FormControl(null),
+        trial: new FormControl(null),
         is_recurrent: new FormControl(false),
         resources: new FormControl([])
     })

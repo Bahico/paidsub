@@ -1,0 +1,22 @@
+[
+    {
+        "telegram_id": 1,
+        "logo_url": "https://i.pinimg.com/736x/6b/08/76/6b087603862a127ea290e0a47ed932bf.jpg",
+        "name": "Blatnoy"
+    },
+    {
+        "telegram_id": 2,
+        "logo_url": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/115043840/original/2a08efbf22bb57fb0572b5b6792ceb2ea962dfb7/design-a-logo-or-profile-picture-for-you.jpg",
+        "name": "Gamer"
+    },
+    {
+        "telegram_id": 3,
+        "logo_url": "https://logopond.com/logos/db69a66347993614d77413962b8763dc.png",
+        "name": "Beautiful girl"
+    },
+    {
+        "telegram_id": 4,
+        "logo_url": "https://www.pngitem.com/pimgs/m/514-5149286_profile-logo-hd-png-download.png",
+        "name": "Just a user"
+    }
+]

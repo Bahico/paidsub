@@ -1,0 +1,13 @@
+<form class="main" [formGroup]="editForm">
+    <div class="title-text">
+        <h1>Общие настройки</h1>
+    </div>
+
+    <webinar-date-create></webinar-date-create>
+</form>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

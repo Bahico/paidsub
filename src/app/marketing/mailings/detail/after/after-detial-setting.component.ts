@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MailingsService } from "../../mailings.service";
 import { MailingsModel } from "../../mailings.model";
 import { TariffService } from "../../../../tariff/tariff.service";
 import { TariffModel } from "../../../../tariff/tariff.model";
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
     templateUrl: 'after-detial-setting.component.html',
@@ -13,11 +14,18 @@ export class AfterDetailSettingComponent {
     mailingId: number;
     mailing: MailingsModel;
     tariffs: TariffModel[];
+    editForm = new FormGroup({
+        name: new FormControl(null),
+        message: new FormControl(null),
+        attachment: new FormControl([]),
+        tariffs: new FormControl([])
+    })
 
     constructor(
         private readonly activatedRoute: ActivatedRoute,
         private readonly mailingsService: MailingsService,
-        private readonly tariffsService: TariffService
+        private readonly tariffsService: TariffService,
+        private readonly router: Router
     ) {}
 
     ngOnInit(): void {
@@ -46,6 +54,10 @@ export class AfterDetailSettingComponent {
     }
 
     save() {
-        
+        this.mailingsService
+        .updateAfter(this.editForm.getRawValue(), this.mailingId)
+        .subscribe(() => {
+            this.router.navigate(['/marketing/mailings'])
+        })
     }
 }

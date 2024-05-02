@@ -1,0 +1,25 @@
+<form [formGroup]="editForm" class="main">
+    <div class="title-text">
+        <span class="text">Основные</span>
+    </div>
+    <name placeholder="рассылки"></name>
+    <p class="down-description">Название вашего бота</p>
+    
+    <div class="container-white card">
+        <textarea placeholder="Описание" formControlName="description"></textarea>
+    </div>
+    <p class="down-description">Текст, который в описании вашего бота</p>
+
+    <div formGroupName="welcome_message">
+        <media placeholder="приветствия"></media>
+    </div>
+    <p class="down-description">
+        Приветствие, которое пользователи увидят до запуска бота
+    </p>
+</form>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

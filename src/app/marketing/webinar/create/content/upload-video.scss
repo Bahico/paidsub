@@ -1,0 +1,30 @@
+.upload-video {
+    display: flex;
+    align-items: center;
+    label {
+        display: flex;
+        align-items: center;
+    }
+    p {
+        margin-left: 20px;
+    }
+    #upload-video {
+        display: none;
+    }
+}
+
+.card {
+    .image {
+        video {
+            width: 42px;
+            height: 48px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    }
+    .infos {
+        p {
+            margin: 0;
+        }
+    }
+}

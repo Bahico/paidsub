@@ -35,9 +35,6 @@ export class MarketingCreateSendAfterComponent implements OnInit {
             this.editForm.patchValue({
                 tariffs: [...tariffs, id]
             })
-        }
-
-        console.log(this.editForm.get('tariffs').value);
-        
+        }        
     }
 }

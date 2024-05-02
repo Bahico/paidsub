@@ -2,31 +2,38 @@
     Кому отправить
 </div>
 <div class="container-white">
-    <div class="position-relative">
+    <div class="position-relative" (click)="changeAuditory(target_auditory.all)">
         <p>Отправить всем</p>
-        <div class="right">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
-                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
+        @if (editForm.get('target_auditory').value === target_auditory.all) {
+            <div class="right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        }
     </div>
     <div class="line"></div>
-    <div class="position-relative">
+    <div class="position-relative" (click)="changeAuditory(target_auditory.only_subscribers)">
         <p>Только подписчикам</p>
-        <div class="right">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
-                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
+        @if (editForm.get('target_auditory').value === target_auditory.only_subscribers) {
+            <div class="right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        }
     </div>
     <div class="line"></div>
-    <div class="position-relative">
+    <div class="position-relative" (click)="changeAuditory(target_auditory.not_prolong_subscriptionn)">
         <p>Пользователям без подписки</p>
-        <div class="right">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
-                <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
+        
+        @if (editForm.get('target_auditory').value === target_auditory.not_prolong_subscriptionn) {
+            <div class="right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        }
     </div>
 </div>
 
@@ -38,7 +45,11 @@
         <p>Отправка</p>
 
         <div class="right" (click)="changeModal()">
-            Сразу
+            @if (!time) {
+                Сразу
+            } @else {
+                Отложенная
+            }
             <span class="margin-4">
                 <img src="assets/images/Group 31.svg" alt="menu">
              </span>
@@ -51,15 +62,30 @@
         </div>
     </div>
 </div>
-
-<div class="container-white date">
-    <div class="position-relative">
-        <input type="text" [(ngModel)]="hours" maxlength="5" (ngModelChange)="changeDate()">
-        <p class="right">Время</p>
+@if (time) {
+    <div class="container-white date">
+        <div class="position-relative">
+            <input 
+                type="text"
+                placeholder="ЧЧ:мм" 
+                mask="00:00" 
+                [dropSpecialCharacters]="false"
+                [(ngModel)]="hours"
+                [ngModelOptions]="{standalone: true}" 
+                (ngModelChange)="changeDate()">
+            <p class="right">Время</p>
+        </div>
+        <div class="line"></div>
+        <div class="position-relative">
+            <input 
+                type="text"
+                placeholder="ММ-ДД-ГГГГ"
+                mask="00-00-0000"
+                [dropSpecialCharacters]="false"
+                [(ngModel)]="date"
+                [ngModelOptions]="{standalone: true}" 
+                (ngModelChange)="changeDate()">
+            <p class="right">Дата</p>
+        </div>
     </div>
-    <div class="line"></div>
-    <div class="position-relative">
-        <input type="text" placeholder="ДД-ММ-ГГГГ" maxlength="10" [(ngModel)]="date" (ngModelChange)="changeDate()">
-        <p class="right">Дата</p>
-    </div>
-</div>
+}

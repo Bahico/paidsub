@@ -8,6 +8,8 @@ import { TariffCreateResourceComponent } from "./create/pages/resources/tariff-c
 import { TariffCreateRecurrentComponent } from "./create/pages/recurrent/tariff-create-recurrent.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { TariffDetailComponent } from "./detail/tariff-detail.component";
+import { UserTariffSelectedComponent } from "../user/tariff/user-tariff-selected.component";
+import { UserTariffSelectingComponent } from "../user/tariff/user-tariff-selecting.component";
 
 @NgModule({
     imports: [
@@ -23,6 +25,14 @@ import { TariffDetailComponent } from "./detail/tariff-detail.component";
             {
                 path: 'view/:id',
                 component: TariffDetailComponent
+            },
+            {
+                path: 'users/:id',
+                component: UserTariffSelectedComponent
+            },
+            {
+                path: 'users-selecting/:id',
+                component: UserTariffSelectingComponent
             }
         ]),
         ReactiveFormsModule

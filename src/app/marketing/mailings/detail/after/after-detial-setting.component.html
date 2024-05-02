@@ -1,23 +1,12 @@
-<div class="main">
+<form [formGroup]="editForm" class="main">
     <div class="title-text">
         <h1>Настройки рассылки</h1>
     </div>
-    <div class="container-white position-relative">
-        <p>Купи нашу подписку</p>
-        <span class="right">32</span>
-    </div>
+    <name placeholder="рассылки"></name>
     <p class="down-description">
         Отображается только у вас
     </p>
-
-    <div class="container-white position-relative">
-        <input type="text" placeholder="Текст рассылки">
-        <span class="right">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M21.0811 16.0959L15.7931 21.384C13.2589 23.9181 9.15018 23.9181 6.616 21.384C4.08181 18.8498 4.08181 14.741 6.616 12.2069L13.7341 5.08876C15.4248 3.39802 18.1661 3.39802 19.8568 5.08876C21.5476 6.77951 21.5476 9.52074 19.8568 11.2115L12.5145 18.5538C11.7201 19.3482 10.4322 19.3482 9.63779 18.5538C8.84342 17.7595 8.84342 16.4715 9.63779 15.6772L15.1501 10.1649C15.43 9.88495 15.43 9.43109 15.1501 9.15116C14.8701 8.87123 14.4163 8.87123 14.1363 9.15116L8.62407 14.6634C7.26983 16.0177 7.26983 18.2133 8.62407 19.5676C9.9783 20.9218 12.174 20.9218 13.5282 19.5676L20.8705 12.2252C23.1211 9.9746 23.1211 6.32565 20.8705 4.07504C18.6199 1.82443 14.971 1.82443 12.7204 4.07504L5.60227 11.1931C2.50822 14.2872 2.50822 19.3036 5.60227 22.3977C8.69632 25.4917 13.7128 25.4917 16.8068 22.3977L22.0948 17.1097C22.3748 16.8297 22.3748 16.3759 22.0948 16.0959C21.8149 15.816 21.361 15.816 21.0811 16.0959Z" fill="#858E99"/>
-            </svg>
-        </span>
-    </div>
+    <media placeholder="рассылки"></media>
     <p class="down-description">
         Сообщение, которое хотите разослать пользователям.
     </p>
@@ -25,25 +14,11 @@
     <div class="container-title">
         <p>Подключенные тарифы</p>
     </div>
-    <div class="container-white">
-        @for (tariff of tariffs; track $index) {
-            <div class="position-relative tariff">
-                <p>{{tariff.name}}</p>
-                <div class="right">
-                    <label class="switch">
-                        <input class="switch-input" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="line {{$last ? 'no-active' : ''}}"></div>
-        }
-    </div>
+    <marketing-create-send-after></marketing-create-send-after>
     <p class="down-description">
         Выберите тарифы, которые будут закреплены за задачей рассылки!
     </p>
-</div>
+</form>
 
 <div class="down-button">
     <button (click)="save()">

@@ -7,7 +7,7 @@ import { ControlContainer, FormGroup } from "@angular/forms";
     selector: 'tariff-create-price-date'
 })
 export class TariffCreatePriceDateComponent implements OnInit {
-    editForm?: FormGroup;
+    editForm: any;
     dayOpen = false;
 
     constructor(
@@ -18,7 +18,12 @@ export class TariffCreatePriceDateComponent implements OnInit {
         this.editForm = <FormGroup>this.controlContainer.control;
     }
 
-    changeDay() {
-        this.dayOpen = !this.dayOpen
+    changeDay(day: number) {
+        this.editForm.get('trial').setValue(day);
+    }
+
+    changeDayModal() {        
+        this.dayOpen = !this.dayOpen;
+        console.log(this.dayOpen);
     }
 }

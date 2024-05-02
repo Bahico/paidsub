@@ -27,7 +27,7 @@ export class WebinarComponent implements OnInit {
         noData: "Чтобы создать новый, нажмите на кнопку ниже"
     };
     mode:"noData" | "data" = "noData";
-    webinars: WebinarModel;
+    webinars: WebinarModel[];
 
     ngOnInit(): void {
         this.webinarService

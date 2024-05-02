@@ -34,6 +34,8 @@ export class TariffDetailComponent implements OnInit {
                 amount: new FormControl(null)
             })
         ]),
+        duration: new FormControl(null),
+        trial: new FormControl(null),
         display_option: new FormControl("tariff_display_options_only_for_selected_users"),
         is_recurrent: new FormControl(false),
         resources: new FormControl([])
@@ -50,7 +52,8 @@ export class TariffDetailComponent implements OnInit {
           this.loadTariff();
         });
 
-        this.loadResources()
+        this.loadResources();
+        this.editForm.valueChanges.subscribe(data => console.log(data))
     }
 
     loadTariff() {

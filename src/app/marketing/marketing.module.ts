@@ -2,17 +2,21 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { MarketingRoute } from "./marketing.route";
 import { MenuComponent } from "./menu/menu.component";
-import { EditComponent } from "./edit/edit.component";
-import { BasicComponent } from "./edit/basic/basic.component";
+import { BasicComponent } from "./edit/basic.component";
+import { NameComponent } from "../core/name/name.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MediaComponent } from "../core/media/media.component";
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(MarketingRoute)
-    ],
     declarations: [
         MenuComponent,
-        EditComponent,
         BasicComponent
+    ],
+    imports: [
+        RouterModule.forChild(MarketingRoute),
+        NameComponent,
+        ReactiveFormsModule,
+        MediaComponent
     ]
 })
 export class MarketingModule {

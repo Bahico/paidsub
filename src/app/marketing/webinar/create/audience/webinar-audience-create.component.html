@@ -1,0 +1,56 @@
+<div class="container-white">
+    <div class="position-relative" (click)="change(target_auditory.new_users)">
+        <p>Для новых пользователей</p>
+        @if (editForm.get('target_auditory').value === target_auditory.new_users) {
+            <span class="right primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        }
+    </div>
+    <div class="line"></div>
+    <div class="position-relative" (click)="change(target_auditory.all)">
+        <p>Для всех</p>
+        @if (editForm.get('target_auditory').value === target_auditory.all) {
+            <span class="right primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        }
+    </div>
+    <div class="line"></div>
+    <div class="position-relative" (click)="change(target_auditory.only_subscribers)">
+        <p>Для подписчиков</p>
+        @if (editForm.get('target_auditory').value === target_auditory.only_subscribers) {
+            <span class="right primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        }
+    </div>
+    <div class="line"></div>
+    <div class="position-relative" (click)="change(target_auditory.not_prolong_subscriptionn)">
+        <p>Для непродливших подписку</p>
+        @if (editForm.get('target_auditory').value === target_auditory.not_prolong_subscriptionn) {
+            <span class="right primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        }
+    </div>
+    <div class="line"></div>
+    <div class="position-relative" (click)="change(target_auditory.nothing)">
+        <p>Никому</p>
+        @if (editForm.get('target_auditory').value === target_auditory.nothing) {
+            <span class="right primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5.8L4.15789 9L11 1" stroke="#007AFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        }
+    </div>
+</div>

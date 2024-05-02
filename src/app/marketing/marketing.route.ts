@@ -1,7 +1,6 @@
 import { Routes } from "@angular/router";
 import { MenuComponent } from "./menu/menu.component";
-import { EditComponent } from "./edit/edit.component";
-import { BasicComponent } from "./edit/basic/basic.component";
+import { BasicComponent } from "./edit/basic.component";
 
 export const MarketingRoute:Routes = [
     {
@@ -15,10 +14,6 @@ export const MarketingRoute:Routes = [
     },
     {
         path: 'edit',
-        component: EditComponent
-    },
-    {
-        path: 'edit-basic',
         component: BasicComponent
     },
     {
@@ -36,5 +31,9 @@ export const MarketingRoute:Routes = [
     {
         path: 'webinar',
         loadChildren: () => import('./webinar/webinar.module').then(m => m.WebinarModule)
+    },
+    {
+        path: 'notification',
+        loadChildren: () => import('./notification/notification.module').then(m => m.NotificationModule)
     }
 ]

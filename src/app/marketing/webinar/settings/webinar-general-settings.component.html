@@ -1,0 +1,17 @@
+<form class="main" [formGroup]="editForm">
+    <div class="title-text">
+        <h1>Общие настройки</h1>
+    </div>
+
+    <webinar-content-create></webinar-content-create>
+
+    <webinar-message-create></webinar-message-create>
+    
+    <webinar-audience-create></webinar-audience-create>
+</form>
+
+<div class="down-button">
+    <button (click)="save()">
+        Сохранить
+    </button>
+</div>

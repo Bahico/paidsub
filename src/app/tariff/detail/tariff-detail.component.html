@@ -1,67 +1,13 @@
 <form class="main" [formGroup]="editForm">
-    <div class="title-text container">
+    <div class="title-text">
         <span class="text">Настройки тарифа</span>
         <span class="id">ID {{tariffId}}</span>
     </div>
 
-    <div class="name container-white">
-        <div>
-            <input type="text" placeholder="Название" formControlName="name">
-            <span class="right">32</span>
-        </div>
-        <div class="line"></div>
-        <div>
-            <textarea type="text" placeholder="Описание" formControlName="description"></textarea>
-        </div>
-    </div>
+    <tariff-create-name></tariff-create-name>
     <p class="paragraph">Укажите имя и описание тарифа. Оно отобразиться у пользователей</p>
 
-    <div class="container-title">
-        <p>стоимость</p>
-    </div>
-    <div class="container-white" formArrayName="price">
-        <div class="position-relative" [formGroup]="editForm.controls.price.controls[0]">
-            <input type="text" placeholder="0" formControlName="amount">
-            <p class="right">RUB</p>
-        </div>
-        <div class="line"></div>
-        <div class="position-relative"  [formGroup]="editForm.controls.price.controls[1]">
-            <input type="text" placeholder="0" formControlName="amount">
-            <p class="right">USD</p>
-        </div>
-    </div>
-    
-    <div class="container-title">
-        <p>Продолжительность</p>
-    </div>
-    <div class="container-white">
-        <div class="position-relative">
-            <input type="text" placeholder="Бессрочно">
-            <p class="right">Дней</p>
-        </div>
-        <div class="line"></div>
-        <div class="dropup" (click)="changeDay()">
-                <p>
-                    Триал период
-                </p>
-                <p class="right">
-                    Выключен
-                    <span class="margin-4">
-                       <img src="assets/images/Group 31.svg" alt="menu">
-                    </span>
-                </p>
-
-                <div class="dropup-content {{dayOpen ? 'dropup-active' : ''}}">
-                    <span class="item">Content 1</span>
-                    <span class="line-border"></span>
-                    <span class="item">Content 1</span>
-                    <span class="line-border"></span>
-                    <span class="item">Content 1</span>
-                </div>
-        </div>
-    </div>
-    <p class="paragraph">Укажите срок в днях или оставьте поле пустым если продолжительность бессрочная</p>
-
+    <tariff-create-price-date></tariff-create-price-date>
 
     <div class="container-title">
         <p>Подключенные ресурсы</p>
@@ -139,7 +85,7 @@
         } @else if (editForm.get('display_option').value === 'tariff_display_options_only_for_selected_users') {
             <div class="line"></div>
 
-            <div class="position-relative">
+            <div class="position-relative" routerLink="../../users/{{tariffId}}">
                 <p>Исключения</p>
                 <p class="right" style="right: 5px;">
                     26 человек

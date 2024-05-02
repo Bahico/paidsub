@@ -1,13 +1,10 @@
 <div class="main">
     <form [formGroup]="createBtn" class="container-white">
-        <div class="card">
-            <input type="text" formControlName="text" placeholder="Название кнопки">
-            <p class="right">
-                32
-            </p>
-        </div>
+        <name [container]="false" placeholder="кнопки" controlName="text"></name>
+
         <div class="line"></div>
-        <div class="card">
+        
+        <div>
             <input type="text" formControlName="url" placeholder="Ссылка">
         </div>
     </form>

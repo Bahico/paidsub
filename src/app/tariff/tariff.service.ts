@@ -2,6 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { getEndpointFor } from "../core/endpoint";
 import { HttpClient } from "@angular/common/http";
 import { TariffModel } from "./tariff.model";
+import { UserModel } from "../user/user.model";
 
 @Injectable({
     providedIn: "root"
@@ -28,5 +29,17 @@ export class TariffService {
 
     delete(id: number) {
         return this.http.delete(`${this.resourceUrl}/${id}`);
+    }
+
+    usersSelected(tariffId: number) {
+        return this.http.get<UserModel[]>(`${this.resourceUrl}/${tariffId}/usersByUrlAccessList`)
+    }
+    
+    usersSelect(tariffId: number) {
+        return this.http.get<UserModel[]>(`${this.resourceUrl}/${tariffId}/usersAccessList`)
+    }
+
+    usersUpdate(tariffId: number, telegram_id: number) {
+        return this.http.put(`${this.resourceUrl}/${tariffId}/usersByUrlAccessList/${telegram_id}`, {})
     }
 }

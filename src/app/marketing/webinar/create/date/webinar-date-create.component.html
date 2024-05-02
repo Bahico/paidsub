@@ -1,0 +1,189 @@
+@if (editForm) {
+    <form [formGroup]="editForm">
+        <div class="container-white position-relative down-up dropup">
+            <p>
+                Повторяемость
+            </p>
+    
+            <div class="right right-menu" (click)="changeTypeModal()">
+                @if (type === 0) {
+                    Разово
+                } @else if (type === 1) {
+                    Неделя
+                } @else {
+                    Месяц
+                }
+                <span class="margin-4">
+                    <img src="assets/images/Group 31.svg" alt="menu">
+                </span>
+            </div>
+    
+            <div class="dropup-content {{typeModal ? 'dropup-active' : ''}}">
+                <span class="item" (click)="changeType(0)">Разово</span>
+                <span class="line-border"></span>
+                <span class="item" (click)="changeType(1)">Неделя</span>
+                <span class="line-border"></span>
+                <span class="item" (click)="changeType(2)">Месяц</span>
+            </div>
+        </div>
+    
+        <p class="down-description">
+            Выберите периодичность проведения автовебинара
+        </p>
+    
+        @if (type === 0) {
+            <div class="container-white">
+                <div class="position-relative">
+                    <input 
+                    type="text"
+                    placeholder="ЧЧ:мм" 
+                    mask="00:00" 
+                    [dropSpecialCharacters]="false"
+                    [(ngModel)]="hours"
+                    [ngModelOptions]="{standalone: true}" 
+                    (ngModelChange)="changeHour()">
+                    <span class="right">
+                        Время
+                    </span>
+                </div>
+    
+                <div class="line"></div>
+    
+                <div class="position-relative">
+                    <input
+                     type="text"
+                     placeholder="ММ-ДД-ГГГГ"
+                     mask="00-00-0000"
+                     [dropSpecialCharacters]="false"
+                     [(ngModel)]="year"
+                     [ngModelOptions]="{standalone: true}" 
+                     (ngModelChange)="changeYear()"
+                     >
+                    <span class="right">
+                        Дата
+                    </span>
+                </div>
+            </div>
+            <p class="down-description">Дата и время проведения разового автовебинара</p>
+        } @else if (type === 1) {
+            <div class="container-title">
+                <p>Повторять каждую...</p>
+            </div>
+            <div class="container-white">
+                <div class="position-relative" formGroupName="broadcast_settings">
+                    <input type="number" placeholder="0" formControlName="period">
+                    <span class="right">
+                        Неделю
+                    </span>
+                </div>
+                <div class="line"></div>
+    
+                <div class="weeks">
+                    <div 
+                        (click)="changeWeek(1)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(1) && 'week-active'}}"
+                    >
+                        ПН
+                    </div>
+                    <div 
+                        (click)="changeWeek(2)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(2) && 'week-active'}}"
+                    >
+                        ВТ
+                    </div>
+                    <div 
+                        (click)="changeWeek(3)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(3) && 'week-active'}}"
+                    >
+                        СР
+                    </div>
+                    <div 
+                        (click)="changeWeek(4)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(4) && 'week-active'}}"
+                    >
+                        ЧТ
+                    </div>
+                    <div 
+                        (click)="changeWeek(5)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(5) && 'week-active'}}"
+                    >
+                        ПТ
+                    </div>
+                    <div 
+                        (click)="changeWeek(6)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(6) && 'week-active'}}"
+                    >
+                        СБ
+                    </div>
+                    <div 
+                        (click)="changeWeek(0)"
+                        class="week {{editForm.get('broadcast_settings').get('everyDays').value.includes(0) && 'week-active'}}"
+                    >
+                        СБ
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container-white position-relative" style="margin-top: 10px;">
+                <input 
+                    type="text" 
+                    placeholder="ЧЧ:мм" 
+                    mask="00:00" 
+                    [dropSpecialCharacters]="false"
+                    [(ngModel)]="hours" 
+                    [ngModelOptions]="{standalone: true}" 
+                    (ngModelChange)="changeHour()">
+                <span class="right">
+                    Время
+                </span>
+            </div>
+            <p class="down-description">
+                Выберите через сколько недель вновь повторить автовебинар, а так же дни недели и время запуска.
+            </p>
+        } @else {
+            <div class="container-title">
+                <p>Повторять каждый...</p>
+            </div>
+            <div class="container-white" formGroupName="broadcast_settings">
+                <div class="position-relative">
+                    <input type="number" placeholder="0" formControlName="period">
+                    <span class="right">
+                        Месяц
+                    </span>
+                </div>
+    
+                <div class="line"></div>
+                
+                <div class="position-relative">
+                    <input 
+                        type="number" 
+                        placeholder="0" 
+                        [(ngModel)]="numberDay"
+                        [ngModelOptions]="{standalone: true}" 
+                        (ngModelChange)="changeNumber()"
+                    >
+                    <span class="right">
+                        Числа
+                    </span>
+                </div>
+            </div>
+    
+            <div class="container-white position-relative" style="margin-top: 10px;">
+                <input
+                    type="text"  
+                    placeholder="ЧЧ:мм" 
+                    mask="00:00" 
+                    [(ngModel)]="hours" 
+                    [dropSpecialCharacters]="false"
+                    [ngModelOptions]="{standalone: true}" 
+                    (ngModelChange)="changeHour()">
+                <span class="right">
+                    Время
+                </span>
+            </div>
+            <p class="down-description">
+                Выберите через сколько месяцев вновь повторить автовебинар, какого числа месяца, а так же время запуска.
+            </p>
+        }
+    </form>    
+}
