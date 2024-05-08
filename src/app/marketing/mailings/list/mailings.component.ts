@@ -1,13 +1,23 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { MailingsService } from "../mailings.service";
 import { BroadcastKind, MailingsModel } from "../mailings.model";
+import { Telegram } from '@twa-dev/types';
+import {Location} from '@angular/common';
+
+declare global {
+    interface Window {
+      Telegram: Telegram;
+    }
+  }
+
 
 @Component({
     templateUrl: 'mailings.component.html',
     styleUrl: 'mailings.component.scss'
 })
 export class MailingsComponent implements OnInit {
-    private readonly mailingsService = inject(MailingsService)
+    private readonly mailingsService = inject(MailingsService);
+    private _location = inject(Location);
     
     mailings: MailingsModel[];
     broadcastKind = BroadcastKind;
@@ -25,6 +35,11 @@ export class MailingsComponent implements OnInit {
     ngOnInit(): void {
         this.mailingsService.mailings().subscribe(data => {
             this.mailings = data;
+        });
+
+        window?.Telegram?.WebApp?.BackButton.show();
+        window?.Telegram?.WebApp?.onEvent('backButtonClicked', () => {
+            this._location.back()
         })
     }
 }
